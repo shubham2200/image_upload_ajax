@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex mt-5">
+
+            <div class="col-sm-12 alert alert-danger">
+                <h1 class="text-center">FILE UPLOAD WITH AJAX</h1>
+
+            </div>
+
+        </div>
+        <div class="d-flex  mt-3">
+            <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <h3 class="alert alert-success text-center">
+                        File upload
+
+                    </h3>
+                </div>
+                <div class="mb-3 col-sm-5">
+                    <form action="" class="" enctype='multipart/form-data' id="form" method="post">
+                        {% csrf_token %}
+                        <div class="form-floating  text-centers mb-3">
+                            <input type="text" class="form-control" id="username" name="Uname"
+                                placeholder="Employe name">
+                            <label for="floatingInput">Employe_name </label>
+                        </div>
+                        <label for="formFileSm" class="form-label">IMG UPLOAD</label>
+                        <input class="form-control form-control-sm" name="img" id="ajax_image" type="file">
+                        <input type="submit" class="btn btn-success mt-5 " name="" id="savebtn">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="col-sm-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>id</td>
+                            <td>NAME</td>
+                            <td>IMG</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody" class="tbody">
+                        {% for i in data %}
+                        <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.user_name}}</td>
+                            <td class="img_style"> <img src="/media/{{i.image}}" alt=""> </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/uploader.js' %}">    </script>
+
+</body>
+
+</html>
