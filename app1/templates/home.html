@@ -71,7 +71,7 @@
                         <tr>
                             <td>{{i.id}}</td>
                             <td>{{i.user_name}}</td>
-                            <td class="img_style"> <img src="/media/{{i.image}}" alt=""> </td>
+                            <td class="img_style"> <img src="{{i.image}}" alt=""> </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -80,8 +80,10 @@
             </div>
         </div>
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'js/uploader.js' %}">    </script>
+    <script src="{% static 'js/uploader.js' %}" >    </script>
 
 </body>
 
